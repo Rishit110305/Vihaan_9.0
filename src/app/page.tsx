@@ -70,30 +70,63 @@ export default function SchedulePage() {
       {/* Background radial gradient to give the hazy dark blue vibe */}
       <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,_var(--tw-gradient-stops))] from-[#0D1522] via-[#070B11] to-[#04060A] opacity-90"></div>
 
-      {/* Decorative Vectors mimicking astrolabe lines */}
-      <div className="pointer-events-none absolute inset-0 z-0 overflow-hidden mix-blend-screen opacity-20">
-        <svg
-          className="absolute top-0 right-0 w-[1000px] h-[1000px] -translate-y-1/3 translate-x-1/4 stroke-[#4C5562]"
-          viewBox="0 0 100 100"
-          fill="none"
-        >
-          <circle cx="50" cy="50" r="45" strokeWidth="0.05" strokeDasharray="1 1.5" />
-          <circle cx="50" cy="50" r="35" strokeWidth="0.05" />
-          <circle cx="50" cy="50" r="25" strokeWidth="0.05" strokeDasharray="2 2" />
-          <line x1="5" y1="50" x2="95" y2="50" strokeWidth="0.05" />
-          <line x1="50" y1="5" x2="50" y2="95" strokeWidth="0.05" />
-          <line x1="18.18" y1="18.18" x2="81.82" y2="81.82" strokeWidth="0.05" />
-          <line x1="18.18" y1="81.82" x2="81.82" y2="18.18" strokeWidth="0.05" />
-        </svg>
+      {/* Decorative Vectors mimicking astrolabe lines (Pixel-Perfect Alignment Grids) */}
+      <div className="pointer-events-none absolute inset-0 z-0 mix-blend-screen opacity-[0.25] overflow-hidden">
+        <div className="relative w-full h-full max-w-[1400px] mx-auto">
+          
+          {/* Node 5 (Right side over Vihaan Ends) -> Concentric Circles Grid */}
+          <div className="absolute left-[90%] top-[45%] w-0 h-0 flex items-center justify-center">
+            <svg className="w-[800px] h-[800px] -translate-y-[80px] stroke-[#71665D] overflow-visible" fill="none">
+              <circle cx="400" cy="400" r="100" strokeWidth="1" strokeDasharray="4 6" />
+              <circle cx="400" cy="400" r="180" strokeWidth="1" />
+              <circle cx="400" cy="400" r="260" strokeWidth="0.5" strokeDasharray="2 4" />
+              {/* Axes passing straight through node center */}
+              <line x1="400" y1="0" x2="400" y2="800" strokeWidth="1" strokeDasharray="8 8" />
+              <line x1="0" y1="400" x2="800" y2="400" strokeWidth="0.5" />
+            </svg>
+          </div>
 
-        <svg
-          className="absolute bottom-0 left-0 w-[800px] h-[800px] translate-y-1/3 -translate-x-1/4 stroke-[#4C5562]"
-          viewBox="0 0 100 100"
-          fill="none"
-        >
-          <circle cx="50" cy="50" r="40" strokeWidth="0.05" strokeDasharray="1 1" />
-          <circle cx="50" cy="50" r="20" strokeWidth="0.05" />
-        </svg>
+          {/* Node 4 (Middle-Right over Vihaan Begins) -> Massive Deathly Hallows Triangle */}
+          <div className="absolute left-[70%] top-[45%] w-0 h-0 flex items-center justify-center">
+            <svg className="w-[1000px] h-[1000px] stroke-[#71665D] overflow-visible" fill="none">
+              <g transform="translate(500, 500)">
+                {/* Apex at y=-300, Base at y=250. Diff = 550. Center of inscribed circle = 250 - 550/3 = 66.6 */}
+                {/* Horizontal width of base = 2 * 550 / sqrt(3) = 635. So half base = 317.5 */}
+                <path d="M0,-300 L317.5,250 L-317.5,250 Z" strokeWidth="1.5" />
+                <circle cx="0" cy="66.6" r="183.3" strokeWidth="1.5" />
+                {/* Concentric inner shapes */}
+                <circle cx="0" cy="66.6" r="110" strokeWidth="0.75" />
+                <circle cx="0" cy="66.6" r="50" strokeWidth="1" strokeDasharray="3 5" />
+                {/* Vertical axis straight through specific node */}
+                <line x1="0" y1="-500" x2="0" y2="500" strokeWidth="1.5" strokeDasharray="4 6" />
+                {/* Horizontal Base line passing full screen basically */}
+                <line x1="-800" y1="250" x2="800" y2="250" strokeWidth="0.5" strokeDasharray="3 3" />
+                {/* Intersection marks */}
+                <line x1="-200" y1="-100" x2="200" y2="233" strokeWidth="0.5" />
+                <line x1="200" y1="-100" x2="-200" y2="233" strokeWidth="0.5" />
+              </g>
+            </svg>
+          </div>
+
+          {/* Node 3 (Center over Event Brochure) -> Huge Central Orb */}
+          <div className="absolute left-[50%] top-[45%] w-0 h-0 flex items-center justify-center">
+            <svg className="w-[1000px] h-[1000px] stroke-[#71665D] overflow-visible" fill="none">
+               <circle cx="500" cy="500" r="350" strokeWidth="0.5" strokeDasharray="4 8" />
+               <line x1="500" y1="150" x2="500" y2="850" strokeWidth="0.5" strokeDasharray="2 4" />
+            </svg>
+          </div>
+
+          {/* Node 2 & 1 (Left Side over Registration elements) -> Geometric Lines */}
+          <div className="absolute left-[20%] top-[45%] w-0 h-0 flex items-center justify-center">
+            <svg className="w-[800px] h-[800px] stroke-[#71665D] overflow-visible" fill="none">
+               {/* Inverted Triangle shape */}
+               <path d="M-300,-150 L300,-150 L0,369Z" strokeWidth="1.5" opacity="0.5" />
+               <circle cx="0" cy="0" r="80" strokeWidth="1" strokeDasharray="2 4" />
+               <line x1="0" y1="-400" x2="0" y2="400" strokeWidth="0.5" strokeDasharray="2 2" />
+            </svg>
+          </div>
+
+        </div>
       </div>
 
       <div className="relative z-10 w-full h-full max-w-[1400px] mx-auto px-4 md:px-12 flex flex-col justify-between py-6 md:py-10">
